@@ -1,19 +1,25 @@
 <?php
-echo "\n BIENVENIDOS A LA CALCULADORA \n";
-echo "Escoge una de las siguientes opciones \n";
-echo "1. Operaciones Basicas. \n2. raices. \n3. Seno. \n4. Salir. \n";
-$option = readline();
-switch($option){
-    case "1":
-       include_once 'op.php';
-       break;
-    case "2":
+
+while (true) {
+    echo "\nBIENVENIDOS A LA CALCULADORA\n";
+    echo "Escoge una de las siguientes opciones:\n";
+    echo "1. Operaciones Básicas\n";
+    echo "2. Raíces\n";
+    echo "3. Seno\n";
+    echo "4. Salir\n";
+
+    $option = readline("Ingrese una opción (1-4): ");
+
+    if ($option == "1") {
+        include_once 'op.php';
+    } elseif ($option == "2") {
         include_once 'raiz.php';
-        break;
-    case "3":
+    } elseif ($option == "3") {
         include_once 'seno.php';
-        break;
-    case "4":
-        echo "Gracias Por participacion en la calculadora";
-        exit;
+    } elseif ($option == "4") {
+        echo "Gracias por participar en la calculadora\n";
+        break; // Salir del bucle while
+    } else {
+        echo "Opción inválida. Por favor elija una opción del 1 al 4.\n";
+    }
 }
